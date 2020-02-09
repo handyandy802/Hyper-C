@@ -1,0 +1,18 @@
+The contents of this subdirectory accurately reflect the makeup of the
+"libc" standard library used for linking your C programs...
+
+Some of the routines refer to the jump vectors at the base of the opsys code
+beginning at location 0x800....
+
+If you have the Professional ProDOS Hyper C System, the actual source code
+for these embedded "resident" libraries is located in the opsys libs 
+directory...
+
+With the files in this subdirectory you can completely reconstruct the
+"libc" library file (if you really want to!?)...  Those files ending in ".s"
+are 6502 Assembly Language, while the remainder, ending in ".c", are
+Hyper C Source code...
+
+
+
+
