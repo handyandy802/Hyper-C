@@ -1,0 +1,58 @@
+The Opsys files...
+
+These files must be recompiled and linked in the following order...
+
+    startup.s
+    int65.s
+    opsysl.c
+    opsysu.c
+    ffio.c
+    fio.s
+
+to recreate the opsys file...
+
+You will also need each of the files in directory "opsyslibs", and some
+from "libs".
+
+The library routines needed for the operating system interface are:
+
+    printf.c    -- from opsyslibs
+    xprintf.c   -- from opsyslibs
+    clrbuf.s    -- from opsyslibs
+    mover.s     -- from opsyslibs
+    strlen.s    -- from opsyslibs
+    vidio.s     -- from opsyslibs
+    ladd.s      -- from opsyslibs
+    setjmp.s    -- from opsyslibs
+    setup.s     -- from opsyslibs
+    alloc.c     -- from opsyslibs
+    digitset.c  -- from libs
+    sysvars.c   -- from libs
+
+Use "cc" to compile any file with a suffix of ".c".  Use "asm65" to assemble
+any file with a suffix of ".s".
+
+If you were to compile all the "opsys" files and place them into a library
+called "opsyslib", and compile all the "opsyslibs" files and place them into
+a library called "opsyslibc", then the link command to produce another
+version of the opsys file which is booted up by ProDOS would be...
+
+lnk -atb0x800 -u startup -o opsys opsyslib opsyslibc
+
+This links all of the necessary modules together to make the new opsys file.
+This version of the opsys file still contains the header and symbol table,
+though.  Once this is linked, you must make certain (with the "sym" utility)
+that the new opsys file does not use any memory above location 0x1fbf.  The
+64 bytes from 0x1fc0 to 0x1fff are used as storage to hold the execution path
+expression for the shell.  When you run the "sym" utility, use the -s flag
+to receive a listing of the total size of the opsys.  The total size (including
+the text, data, and bss sections) must not exceed 0x17bf bytes.  Once you have
+met this criteria, you must relink the opsys file so as to remove the header
+and symbol table.  Use the following command to produce the final version of
+the opsys:
+
+lnk -atb0x0800 -s -h -u startup -o opsys opsyslib opsyslibc
+
+This links a headerless object file (without a symbol table), org'd at location
+0x800.  Good luck!
+
