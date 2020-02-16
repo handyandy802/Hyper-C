@@ -2,7 +2,7 @@
 
 Hyper C is a program development system published by WSM Group Inc. and David B. McClain around 1985-1986 for 6502 and 65c02 Apple II computers.  The source files reflect the text and directory structure originally provided.  
 
-The technical reference manual I obtained and scanned can be retrieved from https://mirrors.apple2.org.za/Apple%20II%20Documentation%20Project/Software/Languages/C/WSM%20Group%20HyperC/ as well as a few other archives.  The binaries have been archived at various ftp sites in the past and can be found by searching https://mirrors.apple2.org.za .  Various utilities and libraries may also be found there.  Apple IIgs users can use HC.SYSTEM by Gary Desrochers to run Hyper C on those machines.
+The technical reference manual I obtained and scanned can be retrieved from https://mirrors.apple2.org.za/Apple%20II%20Documentation%20Project/Software/Languages/C/WSM%20Group%20HyperC/ as well as a few other archives.  The binaries have been archived at various ftp sites in the past and can be found by searching https://mirrors.apple2.org.za .  Various utilities and libraries may also be found there.  Apple IIgs users can use HC.SYSTEM by Gary Desrochers to run Hyper C in 6502 emulation mode on those machines.
 
 As originally implemented Hyper C was developed for a proprietary disk operating system called CDOS for 5 1/4" floppy disks similar to but not compatible with Apple II DOS 3.3.  A later version was released for Apple II ProDOS and subsequently enhanced to utilize the Apple II SANE floating point math package.
 
